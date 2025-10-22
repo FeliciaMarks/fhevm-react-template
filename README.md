@@ -19,6 +19,17 @@ The FHEVM Universal SDK is the next generation of confidential dApp development 
 - **⚡ TypeScript First** - Full type safety with comprehensive type definitions
 - **📚 Well Documented** - Clear examples and comprehensive documentation
 
+### Smart Contract
+Built on fhEVM (Fully Homomorphic Encryption Virtual Machine) using Zama's encryption library.
+
+**Contract Address**: `0x0f3e553484dF29aF3423AD6E301b571a255b1142`
+
+## 🎬 Demo
+
+**Live Application**: [https://fhe-restaurant-rating.vercel.app/](https://fhe-restaurant-rating.vercel.app/)
+
+**demo.mp4**: See the platform in action with a complete walkthrough of restaurant registration, review submission, and privacy features.
+
 ## 🚀 Quick Start
 
 ### Installation
