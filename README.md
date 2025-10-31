@@ -82,16 +82,41 @@ fhevm-universal-sdk/
 │       │   └── react.ts        # React entry point
 │       └── README.md
 │
+├── templates/                  # 📋 Project Templates (Required for Bounty)
+│   └── nextjs/                 # Next.js template with full SDK integration
+│
 ├── examples/
-│   ├── nextjs/                 # 📱 Next.js Example (Required)
+│   ├── nextjs/                 # 📱 Next.js Example with Complete SDK Integration
 │   │   ├── src/
 │   │   │   ├── app/            # Next.js 14 app directory
-│   │   │   └── components/     # Reusable components
+│   │   │   │   ├── api/        # API routes (FHE operations, encryption, decryption)
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── components/
+│   │   │   │   ├── ui/         # Base UI components (Button, Input, Card)
+│   │   │   │   ├── fhe/        # FHE components (Provider, Computation, KeyManager)
+│   │   │   │   └── examples/   # Use case examples (Banking, Medical)
+│   │   │   ├── lib/
+│   │   │   │   ├── fhe/        # FHE integration (client, server, keys, types)
+│   │   │   │   └── utils/      # Utilities (security, validation)
+│   │   │   ├── hooks/          # Custom hooks (useFHE, useEncryption, useComputation)
+│   │   │   └── types/          # TypeScript types (fhe, api)
 │   │   └── README.md
 │   │
-│   └── restaurant-rating/      # 🍽️ Full dApp Example
+│   └── restaurant-rating/      # 🍽️ Full dApp Example (Next.js 14)
 │       ├── src/
+│       │   ├── app/            # Next.js 14 app directory
+│       │   ├── lib/            # Smart contract & FHEVM utilities
+│       │   ├── hooks/          # Custom hooks (useWallet, useRestaurant)
+│       │   └── types/          # TypeScript type definitions
+│       ├── contracts/          # Smart contract (PrivateRestaurantRating.sol)
 │       └── README.md
+│
+├── docs/                       # 📚 Documentation
+│   ├── API.md                  # Complete API reference
+│   ├── GETTING_STARTED.md      # Quick start guide
+│   ├── USE_CASES.md            # Real-world use cases
+│   └── SECURITY.md             # Security best practices
 │
 ├── contracts/                  # Smart Contracts
 │   └── PrivateRestaurantRating.sol
@@ -191,17 +216,40 @@ function MyComponent() {
 
 ## 📚 Examples
 
-### 1. Next.js Example (Required)
+### 1. Next.js Example (Complete SDK Integration)
 
-A comprehensive Next.js application demonstrating the SDK in action.
+A comprehensive Next.js application demonstrating full SDK capabilities.
 
-**Location:** `examples/nextjs/`
+**Location:** `examples/nextjs/` and `templates/nextjs/`
 
 **Features:**
-- Wallet connection with MetaMask
-- Real-time encryption demo
-- Interactive UI with Tailwind CSS
-- Type-safe contract interactions
+- ✅ Complete directory structure following modern Next.js best practices
+- ✅ API Routes for FHE operations (encrypt, decrypt, compute, keys)
+- ✅ UI Components (Button, Input, Card)
+- ✅ FHE Components (Provider, ComputationDemo, KeyManager)
+- ✅ Real-world Examples (Banking, Medical use cases)
+- ✅ Custom Hooks (useFHE, useEncryption, useComputation)
+- ✅ Complete type definitions and utilities
+- ✅ Security and validation helpers
+- ✅ Wallet connection with MetaMask
+- ✅ Interactive tabbed UI with Tailwind CSS
+
+**Structure:**
+```
+nextjs/
+├── src/
+│   ├── app/
+│   │   ├── api/fhe/          # FHE API routes
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── ui/               # Button, Input, Card
+│   │   ├── fhe/              # FHE-specific components
+│   │   └── examples/         # Use case demos
+│   ├── lib/fhe/              # FHE integration library
+│   ├── hooks/                # Custom React hooks
+│   └── types/                # TypeScript definitions
+```
 
 **Run:**
 ```bash
@@ -214,17 +262,44 @@ Visit [http://localhost:3000](http://localhost:3000)
 
 ### 2. Restaurant Rating dApp
 
-A complete privacy-preserving restaurant rating system.
+A complete privacy-preserving restaurant rating system built with Next.js 14 and the FHEVM SDK.
 
 **Location:** `examples/restaurant-rating/`
 
 **Features:**
-- Private ratings using FHEVM
-- Register restaurants on-chain
-- Submit encrypted reviews
-- Aggregated ratings without revealing individual scores
+- ✅ Full Next.js 14 application with App Router
+- ✅ Private ratings using FHEVM encryption
+- ✅ Register restaurants on-chain
+- ✅ Submit encrypted multi-dimensional reviews (5 rating categories)
+- ✅ Aggregated ratings without revealing individual scores
+- ✅ Wallet connection with MetaMask
+- ✅ TypeScript throughout with full type safety
+- ✅ Custom React hooks for wallet and restaurant operations
+- ✅ Responsive design with Tailwind CSS
 
-**Smart Contract:** `contracts/PrivateRestaurantRating.sol`
+**Smart Contract:** `contracts/PrivateRestaurantRating.sol` (Address: `0x0f3e553484dF29aF3423AD6E301b571a255b1142`)
+
+**Structure:**
+```
+restaurant-rating/
+├── src/
+│   ├── app/              # Next.js app directory
+│   │   ├── layout.tsx    # Root layout
+│   │   ├── page.tsx      # Main application page
+│   │   └── globals.css   # Global styles
+│   ├── lib/              # Smart contract & FHEVM utilities
+│   ├── hooks/            # Custom hooks (useWallet, useRestaurant)
+│   └── types/            # TypeScript type definitions
+```
+
+**Run:**
+```bash
+cd examples/restaurant-rating
+npm install
+npm run dev
+```
+
+Visit [http://localhost:3001](http://localhost:3001)
 
 ## 🛠️ Development
 
@@ -270,14 +345,23 @@ npm run dev:restaurant
 
 ## 📖 Documentation
 
+### Comprehensive Docs
+
+Complete documentation available in the `docs/` directory:
+
+- **[Getting Started](./docs/GETTING_STARTED.md)** - Quick start guide and basic usage
+- **[API Reference](./docs/API.md)** - Complete API documentation
+- **[Use Cases](./docs/USE_CASES.md)** - Real-world applications and examples
+- **[Security](./docs/SECURITY.md)** - Security best practices and guidelines
+
 ### SDK Documentation
 
-See [`packages/fhevm-sdk/README.md`](./packages/fhevm-sdk/README.md) for complete API reference.
+See [`packages/fhevm-sdk/README.md`](./packages/fhevm-sdk/README.md) for detailed SDK information.
 
 ### Example Documentation
 
-- [Next.js Example](./examples/nextjs/README.md)
-- [Restaurant Rating](./examples/restaurant-rating/README.md)
+- [Next.js Example](./examples/nextjs/README.md) - Complete SDK integration example
+- [Restaurant Rating](./examples/restaurant-rating/README.md) - Full dApp example
 
 ## 🎯 Design Philosophy
 
